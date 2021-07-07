@@ -1,17 +1,17 @@
 <template>
 <q-page class="flex-columns justify-around">
-  <h2 class="self-start q-ml-md">Profits</h2>
+  <!-- <h2 class="self-start q-ml-md">Przychody</h2> -->
     <div class="q-pa-md">
     <q-table
       :grid="$q.screen.lt.sm"
-      title="Treats"
+      title="Przychody"
       :rows="rows"
       :columns="columns"
       row-key="name"
       :filter="filter"
     >
       <template v-slot:top-right>
-        <q-input borderless dense debounce="300" v-model="filter" placeholder="Search">
+        <q-input borderless dense debounce="300" v-model="filter" placeholder="Szukaj">
           <template v-slot:append>
             <q-icon name="search" />
           </template>
@@ -27,85 +27,55 @@ import { ref } from 'vue';
 
 const columns = [
   {
-    name: 'desc',
+    name: 'tytul',
     required: true,
-    label: 'Dessert (100g serving)',
+    label: 'Tytuł',
     align: 'left',
     field: (row) => row.name,
     format: (val) => `${val}`,
     sortable: true,
   },
   {
-    name: 'calories', align: 'center', label: 'Calories', field: 'calories', sortable: true,
+    name: 'kategoria', align: 'center', label: 'Kategoria', field: 'kategoria', sortable: true,
   },
   {
-    name: 'fat', label: 'Fat (g)', field: 'fat', sortable: true,
+    name: 'data', label: 'Data', field: 'data', sortable: true,
   },
   {
-    name: 'carbs', label: 'Carbs (g)', field: 'carbs',
+    name: 'kwota', label: 'Kwota', field: 'kwota',
   },
 ];
 
 const rows = [
   {
     name: 'Frozen Yogurt',
-    calories: 159,
-    fat: 6.0,
-    carbs: 24,
+    data: 159,
+    kategoria: 6.0,
+    kwota: 24,
   },
   {
     name: 'Ice cream sandwich',
-    calories: 237,
-    fat: 9.0,
-    carbs: 37,
+    data: 237,
+    kategoria: 9.0,
+    kwota: 37,
   },
   {
     name: 'Eclair',
-    calories: 262,
-    fat: 16.0,
-    carbs: 23,
+    data: 262,
+    kategoria: 16.0,
+    kwota: 23,
   },
   {
     name: 'Cupcake',
-    calories: 305,
-    fat: 3.7,
-    carbs: 67,
+    data: 305,
+    kategoria: 3.7,
+    kwota: 67,
   },
   {
     name: 'Gingerbread',
-    calories: 356,
-    fat: 16.0,
-    carbs: 49,
-  },
-  {
-    name: 'Jelly bean',
-    calories: 375,
-    fat: 0.0,
-    carbs: 94,
-  },
-  {
-    name: 'Lollipop',
-    calories: 392,
-    fat: 0.2,
-    carbs: 98,
-  },
-  {
-    name: 'Honeycomb',
-    calories: 408,
-    fat: 3.2,
-    carbs: 87,
-  },
-  {
-    name: 'Donut',
-    calories: 452,
-    fat: 25.0,
-    carbs: 51,
-  },
-  {
-    name: 'KitKat',
-    calories: 518,
-    fat: 26.0,
-    carbs: 65,
+    data: 356,
+    kategoria: 16.0,
+    kwota: 49,
   },
 ];
 

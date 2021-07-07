@@ -2,12 +2,19 @@
    <q-layout view="lHh lpr fFf">
     <q-header elevated>
       <q-toolbar>
-        <q-btn @click="toggleLeftDrawer" flat dense round icon="menu" aria-label="Menu" />
+        <q-btn @click="toggleLeftDrawer" flat dense round
+        icon="menu"
+        aria-label="Menu"
+        class="gt-xs" />
 
         <q-toolbar-title>
           Coinbook
         </q-toolbar-title>
         <q-btn dense flat round icon="settings" @click="toggleRightDrawer" />
+        <q-btn @click="toggleLeftDrawer" flat dense round
+          icon="menu"
+          aria-label="Menu"
+          class="lt-sm" />
       </q-toolbar>
     </q-header>
 
