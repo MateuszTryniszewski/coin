@@ -40,11 +40,13 @@
 /* eslint-disable no-console */
 import { defineComponent, ref } from 'vue';
 import { auth } from 'boot/firebase';
+import { useRouter } from 'vue-router';
 
 export default defineComponent({
   name: 'Login',
 
   setup() {
+    const $router = useRouter();
     const email = ref('');
     const password = ref('');
     const newUser = ref(false);
@@ -64,6 +66,7 @@ export default defineComponent({
             // Signed in
               const { user } = userCredential;
               console.log('zalogowano', user);
+              $router.push('/profits');
             })
             .catch((error) => {
               console.log(error.code, error.message);
