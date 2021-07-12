@@ -35,19 +35,20 @@
     </q-drawer>
 
     <q-drawer v-model="rightDrawerOpen" side="right" overlay elevated>
-      <!-- drawer content -->
+      <q-btn to="/login" exact label="wyloguj" outline></q-btn>
     </q-drawer>
     <q-page-container>
       <router-view />
     </q-page-container>
 
     <q-footer elevated class="lt-sm bg-grey-8 text-white">
-      <q-tabs>
+      <q-tabs active-bg-color="primary" >
         <q-route-tab v-for="link in essentialLinks"
           :key="link.title"
           :icon="link.icon"
           :to="link.link"
           :label="link.title"
+          content-class="hide-on--320"
           exact
         />
       </q-tabs>

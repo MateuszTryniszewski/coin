@@ -1,1 +1,14 @@
 // app global css in SCSS form
+.hide-on--320 {
+    .q-tab__label {
+        display: none; 
+    }
+}
+
+@media (min-width: 350px) {
+    .hide-on--320 {
+        .q-tab__label {
+            display: inline-block; 
+        }
+    }
+}
