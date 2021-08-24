@@ -1,5 +1,24 @@
-# Coin (coin)
+# coin3
 
-coin
+## Project setup
+```
+npm install
+```
 
-Projekt oparty o quasar2, vue3, router4
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

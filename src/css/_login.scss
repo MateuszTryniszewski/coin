@@ -1,0 +1,32 @@
+.card {
+  padding: 25px 25px 0px 25px;
+}
+.card__form {
+  display: flex;
+  flex-direction: column;
+  height: 280px;
+  justify-content: space-around;
+  align-items: center;
+}
+.form__title {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.form__section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+@media screen and (min-width: 768px) {
+  .card {
+    width: 320px;
+    height: 320px;
+    margin-top: 50px;
+    border: 1px solid $border;
+    border-radius: $radius;
+    box-shadow: 2px 2px 5px $shadow;
+    backdrop-filter: blur(2px);
+    background: rgba($light, $alpha: 0.6);
+  }
+}

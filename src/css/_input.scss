@@ -1,0 +1,56 @@
+.input {
+  padding: 10px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid $border;
+  min-width: 280px;
+  background: $light;
+}
+.input:hover {
+  background: darken($light, 3%);
+  border-color: $primary;
+}
+
+.input:active, .input:focus {
+  border-color: $primary;
+}
+
+.label {
+  font-size: 0.8rem;
+  margin-left: 2px;
+  color: $dark;
+  font-weight: bold;
+}
+
+.button {
+  padding: 10px 25px;
+  margin: 5px 0px;
+  border-radius: 5px;
+  border: 1px solid $border;
+  cursor: pointer;
+}
+
+.button--primary {
+  background: $primary;
+  border-color: darken($primary, 15%);
+  color:$light;
+}
+
+.button--secondary {
+  background: $secondary;
+  border-color: darken($secondary, 15%);
+  color:$light;
+}
+
+.button--outline {
+  background: none;
+  border-color: lighten($dark, 15%);
+  color: $dark;
+}
+
+.button--span {
+  background: none;
+  border: none;
+  color: $primary;
+  text-decoration: underline;
+}
