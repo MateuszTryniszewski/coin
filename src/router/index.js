@@ -1,7 +1,7 @@
 import Vue from 'vue';
 import VueRouter from 'vue-router';
 import Home from '../views/Home.vue';
-import store from '../store';
+import { auth } from '../firebase';
 
 Vue.use(VueRouter);
 
@@ -10,6 +10,9 @@ const routes = [
     path: '/',
     name: 'Home',
     component: Home,
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/about',
@@ -18,6 +21,9 @@ const routes = [
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue'),
+    meta: {
+      requiresAuth: true,
+    },
   },
   {
     path: '/login',
@@ -32,9 +38,15 @@ const router = new VueRouter({
   routes,
 });
 
-router.beforeEach((to, from, next) => {
-  if (to.name !== 'Login' && !store.getters.currentUserLoggedIn) {
-    next({ name: 'Login' });
+router.beforeEach(async (to, from, next) => {
+  const requiresAuth = to.matched.some((route) => route.meta.requiresAuth);
+
+  if (requiresAuth) {
+    if (!auth.currentUser) {
+      next({ name: 'Login' });
+    } else {
+      next();
+    }
   } else {
     next();
   }
