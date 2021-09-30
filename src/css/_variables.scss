@@ -1,9 +1,33 @@
 $border: #cccccc;
 $primary: #049bc9;
 $secondary: #c9b504;
+$red: #c91104;
+$green: #42b983;
 $light: #f8f8f8;
 $shadow: #cecece;
 $dark: #1b1124;
 
 
 $radius: 5px;
+
+.container {
+  display: grid;
+  min-height: 100vh;
+  grid-template-rows: auto 1fr auto;
+}
+
+.text-primary {
+  color: $primary;
+}
+
+.text-secondary {
+  color: $secondary;
+}
+
+.text-red {
+  color: $red;
+}
+
+.text-green {
+  color: $green;
+}
