@@ -1,6 +1,5 @@
 import Vue from 'vue';
 import firebase from 'firebase';
-import * as allIcons from 'ionicons/icons';
 import App from './App.vue';
 import './registerServiceWorker';
 import router from './router';
@@ -15,7 +14,6 @@ firebase.auth().onAuthStateChanged(() => {
     app = new Vue({
       router,
       store,
-      allIcons,
       render: (h) => h(App),
     }).$mount('#app');
   }

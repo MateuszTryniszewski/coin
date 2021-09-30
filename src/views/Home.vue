@@ -41,9 +41,5 @@ export default {
 </script>
 
 <style lang="scss">
-.container {
-  display: grid;
-  min-height: 100vh;
-  grid-template-rows: auto 1fr auto;
-}
+
 </style>
