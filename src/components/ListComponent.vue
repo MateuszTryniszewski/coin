@@ -1,7 +1,9 @@
 <template>
-    <div>
-      <ListItemComponent :data="data"/>
+  <div>
+    <div v-for="(item, index) in data" :key="index">
+      <ListItemComponent :item="item" @remove="remove($event)"/>
     </div>
+  </div>
 </template>
 
 <script>
@@ -18,8 +20,9 @@ export default {
     return {
       data: [
         {
+          id: 1,
           title: 'Wyjaz na narty w góry ze znajomymi do białki tatrzańskiej',
-          date: '21.0.2022',
+          date: '21-04-2022',
           amount: 1358635.85,
           category: {
             name: 'podróże',
@@ -28,8 +31,9 @@ export default {
           },
         },
         {
+          id: 2,
           title: 'Paliwo volvo',
-          date: '21.0.2022',
+          date: '21-06-2022',
           amount: 165.85,
           category: {
             name: 'car',
@@ -38,8 +42,9 @@ export default {
           },
         },
         {
+          id: 3,
           title: 'Jedzenie na mieście',
-          date: '21.0.2022',
+          date: '21-10-2022',
           amount: 35,
           category: {
             name: 'podróże',
@@ -48,8 +53,9 @@ export default {
           },
         },
         {
+          id: 4,
           title: 'Przykładowy długi tytuł sdf saf sdf',
-          date: '21.0.2022',
+          date: '21-02-2022',
           amount: 1234.85,
           category: {
             name: 'podróże',
@@ -59,6 +65,11 @@ export default {
         },
       ],
     };
+  },
+  methods: {
+    remove(id) {
+      this.data = this.data.filter((item) => item.id !== id);
+    },
   },
 
 };
