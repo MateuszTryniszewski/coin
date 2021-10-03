@@ -2,11 +2,20 @@
   <div class="container">
     <header class="header">
     <button v-if="userLoggedIn" @click="logout">wyloguj</button>
+    <button v-if="AddNewItem"
+      @click="AddNewItem = !AddNewItem"
+      class="float-button">
+      <VIcon name="chevron-left" class="icon" scale="1.2" />
+    </button>
   </header>
   <main>
-    <span>Title - About</span>
-    <ListComponent></ListComponent>
-    <button class="float-button">
+    <transition name="slide" mode="out-in" appear>
+      <ListComponent v-if="!AddNewItem"></ListComponent>
+      <AddItemComponent v-if="AddNewItem"></AddItemComponent>
+    </transition>
+    <button v-if="!AddNewItem"
+      @click="AddNewItem = !AddNewItem"
+      class="float-button">
       <VIcon name="plus" class="icon" scale="1.2" />
     </button>
   </main>
@@ -20,6 +29,7 @@
 import ListComponent from '@/components/ListComponent.vue';
 import 'vue-awesome/icons';
 import VIcon from 'vue-awesome/components/Icon';
+import AddItemComponent from '@/components/AddItemComponent.vue';
 import Menu from '../components/Menu.vue';
 import { auth } from '../firebase';
 
@@ -30,6 +40,13 @@ export default {
     ListComponent,
     Menu,
     VIcon,
+    AddItemComponent,
+  },
+
+  data() {
+    return {
+      AddNewItem: false,
+    };
   },
 
   computed: {

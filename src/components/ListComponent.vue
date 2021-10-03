@@ -1,5 +1,6 @@
 <template>
   <div>
+    <span class="form__title">Koszty</span>
     <div v-for="(item, index) in data" :key="index">
       <ListItemComponent :item="item" @remove="remove($event)"/>
     </div>
