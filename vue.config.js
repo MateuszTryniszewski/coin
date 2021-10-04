@@ -8,6 +8,7 @@ module.exports = {
         @import "@/css/_input.scss";
         @import "@/css/_login.scss";
         @import "@/css/_menu.scss";
+        @import "@/css/_animations.scss";
         `,
       },
     },

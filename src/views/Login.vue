@@ -47,16 +47,4 @@ export default {
   background-repeat: no-repeat;
   background-position: bottom;
 }
-.slide-enter-active,
-.slide-leave-active {
-  transition: transform 0.3s ease-in-out;
-}
-
-.slide-enter {
-  transform:  translateX(100vw);
-}
-
-.slide-leave-to {
-  transform: translateX(-100vw);
-}
 </style>
