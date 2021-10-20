@@ -34,7 +34,7 @@ import Menu from '../components/Menu.vue';
 import { auth } from '../firebase';
 
 export default {
-  name: 'About',
+  name: 'Expenses',
 
   components: {
     ListComponent,
