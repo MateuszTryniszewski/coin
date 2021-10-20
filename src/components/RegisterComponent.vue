@@ -41,7 +41,7 @@ export default {
           .then((data) => {
             const { email, uid } = data.user;
             this.$store.dispatch('setUser', { email, uid });
-            this.$router.push('about');
+            this.$router.push('expenses');
           });
       } catch (error) {
         this.error = error.message;

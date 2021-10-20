@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="flex">
     <span class="form__title">Koszty</span>
     <div v-for="(item, index) in data" :key="index">
       <ListItemComponent :item="item" @remove="remove($event)"/>
@@ -77,5 +77,8 @@ export default {
 </script>
 
 <style lang="scss">
-
+.flex {
+  display: flex;
+  flex-direction: column;
+}
 </style>

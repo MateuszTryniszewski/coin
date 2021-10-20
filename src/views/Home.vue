@@ -3,7 +3,9 @@
   <header class="header">
     <button v-if="userLoggedIn" @click="logout">wyloguj</button>
   </header>
+  <transition name="slide" mode="out-in" appear>
   <main> <p>test</p></main>
+  </transition>
   <footer>
     <Menu />
   </footer>

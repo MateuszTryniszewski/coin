@@ -5,12 +5,11 @@
       <section class="form__section">
         <label class="label" for="title">title</label>
         <input v-model="item.title" class="input" type="title"
-          name="title" id="title" placeholder="..."/>
+          name="title" id="title" />
       </section>
       <section class="form__section">
         <label class="label" for="amount">amount</label>
-        <input v-model="item.amount" class="input" type="number" name="amount" id="amount"
-          placeholder="..." />
+        <input v-model="item.amount" class="input" type="number" name="amount" id="amount" />
       </section>
       <section class="form__section">
         <label class="label" for="category">category</label>
