@@ -3,15 +3,19 @@
     <header class="header">
     <button v-if="userLoggedIn" @click="logout">wyloguj</button>
     <button v-if="AddNewItem"
-      @click="AddNewItem = !AddNewItem"
+      @click="back"
       class="float-button">
       <VIcon name="chevron-left" class="icon" scale="1.2" />
     </button>
   </header>
   <main>
     <transition name="slide" mode="out-in" appear>
-      <ListComponent v-if="!AddNewItem"></ListComponent>
-      <AddItemComponent v-if="AddNewItem"></AddItemComponent>
+      <ListComponent v-if="!AddNewItem" @update="edit($event)"></ListComponent>
+      <AddItemComponent v-if="AddNewItem"
+        :item="item"
+        :isExisting="isExisting"
+      >
+      </AddItemComponent>
     </transition>
     <button v-if="!AddNewItem"
       @click="AddNewItem = !AddNewItem"
@@ -46,15 +50,37 @@ export default {
   data() {
     return {
       AddNewItem: false,
+      isExisting: false,
+      item: {
+        title: null,
+        amount: null,
+        date: new Date(),
+        category: null,
+      },
     };
   },
-
   computed: {
     userLoggedIn() {
       return this.$store.getters.currentUserLoggedIn;
     },
   },
   methods: {
+    edit(event) {
+      console.log('edit event', event);
+      this.item = event;
+      this.isExisting = true;
+      this.AddNewItem = !this.AddNewItem;
+    },
+    back() {
+      this.item = {
+        title: null,
+        amount: null,
+        date: new Date(),
+        category: null,
+      };
+      this.isExisting = false;
+      this.AddNewItem = !this.AddNewItem;
+    },
     logout() {
       auth.signOut().then(() => {
         this.$store.dispatch('setUser', null);

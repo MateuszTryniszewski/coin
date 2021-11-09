@@ -2,8 +2,8 @@
   <div>
     <div class="row">
       <div class="row__icon">
-        <VIcon :name="item.category.icon"
-          :class="item.category.class || ''" class="icon" scale="1.5" />
+        <VIcon :name="item.category && item.category.icon || 'car'"
+          :class="item.category && item.category.class || ''" class="icon" scale="1.5" />
       </div>
       <div class="row__title">
         <div>
@@ -11,15 +11,15 @@
         </div>
       </div>
       <div class="row__buttons">
-        <button @click="edit(item.id)" class="button-icon text-primary">
+        <button @click="edit(item.uid)" class="button-icon text-primary">
           <VIcon name="edit" class="icon" scale="1.2" />
         </button>
-        <button @click="remove(item.id)" class="button-icon text-red">
+        <button @click="remove(item.uid)" class="button-icon text-red">
           <VIcon name="regular/trash-alt" class="icon" scale="1.2" />
         </button>
       </div>
       <div class="row__date">
-        <span>{{ item.date }}</span>
+        <span>{{ item.data }}</span>
       </div>
       <div class="row__amount" >
         <span class="text-primary">{{ item.amount }} PLN</span>
@@ -53,9 +53,11 @@ export default {
 
   methods: {
     edit(id) {
-      console.log('edit', id);
+      console.log('listitem edit', id);
+      this.$emit('edit', id);
     },
     remove(id) {
+      console.log('uid', id);
       this.$emit('remove', id);
     },
   },
