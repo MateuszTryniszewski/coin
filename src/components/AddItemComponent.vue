@@ -23,27 +23,41 @@
           </option>
           </select>
       </section>
-      <button id="signin" @click="add(item)" class="button button--primary">Add</button>
+      <button id="signin" v-if="!isExisting"
+        @click="add(item)" class="button button--primary">Add</button>
+      <button id="signin" v-else @click="edit(item)" class="button button--primary">Edit</button>
     </form>
   </div>
 </template>
 
 <script>
+import Api from '../api/api';
 
 export default {
   name: 'AddItemComponent',
 
   components: {
   },
+  props: {
+    item: {
+      type: Object,
+      default() {
+        return {
+          title: null,
+          amount: null,
+          date: new Date(),
+          category: null,
+        };
+      },
+    },
+    isExisting: {
+      type: Boolean,
+      default: false,
+    },
+  },
 
   data() {
     return {
-      item: {
-        title: null,
-        amount: null,
-        date: new Date(),
-        category: null,
-      },
       categories: [
         {
           id: 1,
@@ -80,13 +94,15 @@ export default {
   },
   methods: {
     add(item) {
-      console.log('add', item);
-      this.item = {
-        title: null,
-        amount: null,
-        date: new Date(),
-        category: null,
-      };
+      const promise = new Api('expenses', null, item).create();
+      promise
+        .then((res) => {
+          console.log('res', res);
+        })
+        .catch((err) => {
+          console.log('err', err);
+        });
+      console.log('add', promise, item);
     },
   },
 
