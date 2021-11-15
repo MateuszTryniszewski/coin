@@ -23,6 +23,10 @@
           </option>
           </select>
       </section>
+       <section class="form__section">
+        <label class="label" for="date">date</label>
+        <input v-model="item.date" class="input" type="date" name="date" id="date"/>
+      </section>
       <button id="signin" v-if="!isExisting"
         @click="add(item)" class="button button--primary">Add</button>
       <button id="signin" v-else @click="edit(item)" class="button button--primary">Edit</button>
