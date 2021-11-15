@@ -1,5 +1,5 @@
 <template>
-  <div class="login test">
+  <div class="login">
     <transition name="slide" mode="out-in" appear>
       <keep-alive>
         <LoginComponent v-if="IsAccount" />

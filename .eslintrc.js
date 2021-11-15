@@ -13,6 +13,8 @@ module.exports = {
   rules: {
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    "vue/comment-directive": 0
+    "vue/comment-directive": 0,
+    "linebreak-style": ["error", "unix", "windows"],
+    "linebreak-style": 0
   },
 };

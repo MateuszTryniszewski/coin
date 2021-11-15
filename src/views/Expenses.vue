@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import dayjs from 'dayjs';
 import ListComponent from '@/components/ListComponent.vue';
 import 'vue-awesome/icons';
 import VIcon from 'vue-awesome/components/Icon';
@@ -54,7 +55,7 @@ export default {
       item: {
         title: null,
         amount: null,
-        date: new Date(),
+        date: dayjs(new Date()).format('YYYY-MM-DD'),
         category: null,
       },
     };

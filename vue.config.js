@@ -13,4 +13,10 @@ module.exports = {
       },
     },
   },
+  chainWebpack: (config) => {
+    config.module.rule('png')
+      .test(/\.(png|jpg)$/)
+      .use('url-loader')
+      .loader('url-loader');
+  },
 };
